@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://stalwart.app/sitemap.xml
+
+# Block access to admin or internal routes if any
+Disallow: /admin/
+Disallow: /api/

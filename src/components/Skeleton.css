@@ -1,0 +1,237 @@
+.skeleton-container {
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton-shimmer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(99, 102, 241, 0) 0%,
+    rgba(99, 102, 241, 0.1) 50%,
+    rgba(99, 102, 241, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+/* Video skeleton */
+.skeleton-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.skeleton-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skeleton-text {
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 6px;
+  height: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-text-title {
+  width: 60%;
+  height: 1.5rem;
+}
+
+.skeleton-text-subtitle {
+  width: 40%;
+  height: 1rem;
+}
+
+.skeleton-text-center {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.skeleton-text-small {
+  width: 30%;
+  height: 0.875rem;
+  margin: 0 auto;
+}
+
+.skeleton-text-short {
+  width: 40%;
+}
+
+.skeleton-text-medium {
+  width: 60%;
+}
+
+.skeleton-text-wide {
+  width: 80%;
+}
+
+/* Heatmap skeleton */
+.skeleton-heatmap {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  background: rgba(30, 41, 59, 0.6);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skeleton-heatmap-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.skeleton-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.2);
+  border: 3px solid rgba(99, 102, 241, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Upload skeleton */
+.skeleton-upload-container {
+  padding: 2rem;
+}
+
+.skeleton-upload-box {
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  background: rgba(30, 41, 59, 0.6);
+  border: 2px dashed rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.skeleton-upload-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  background: rgba(99, 102, 241, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Card skeleton */
+.skeleton-card {
+  position: relative;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.skeleton-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.skeleton-circle-small {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.2);
+  flex-shrink: 0;
+}
+
+/* Stats skeleton */
+.skeleton-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.skeleton-stat-card {
+  position: relative;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeleton-number {
+  width: 60%;
+  height: 2rem;
+  background: rgba(99, 102, 241, 0.2);
+  border-radius: 6px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .skeleton-heatmap {
+    min-height: 300px;
+  }
+
+  .skeleton-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .skeleton-upload-box {
+    min-height: 200px;
+    padding: 1.5rem;
+  }
+
+  .skeleton-upload-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .skeleton-stats {
+    grid-template-columns: 1fr;
+  }
+}

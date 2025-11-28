@@ -1,0 +1,181 @@
+.notfound-container {
+  min-height: calc(100vh - 80px);
+  background: #0a0e27;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: white;
+}
+
+.notfound-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.notfound-animation {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.notfound-number {
+  font-size: 10rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.notfound-glitch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10rem;
+  font-weight: 900;
+  color: rgba(99, 102, 241, 0.3);
+  animation: glitch 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translateX(-50%) translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(-50%) translate(-5px, 2px);
+    opacity: 0.5;
+  }
+  20% {
+    transform: translateX(-50%) translate(3px, -3px);
+    opacity: 0;
+  }
+  30% {
+    transform: translateX(-50%) translate(-2px, 1px);
+    opacity: 0.3;
+  }
+  40%, 95% {
+    transform: translateX(-50%) translate(0, 0);
+    opacity: 0;
+  }
+}
+
+.notfound-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.notfound-message {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.notfound-suggestions {
+  margin-bottom: 3rem;
+}
+
+.notfound-suggestions h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #cbd5e1;
+}
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.suggestion-card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  color: #cbd5e1;
+}
+
+.suggestion-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+}
+
+.suggestion-card svg {
+  color: #818cf8;
+}
+
+.suggestion-card span {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.btn-back {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+}
+
+.btn-back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.6);
+}
+
+@media (max-width: 768px) {
+  .notfound-number,
+  .notfound-glitch {
+    font-size: 6rem;
+  }
+
+  .notfound-title {
+    font-size: 2rem;
+  }
+
+  .notfound-message {
+    font-size: 1rem;
+  }
+
+  .suggestions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .suggestion-card {
+    padding: 1.25rem 0.75rem;
+  }
+}
