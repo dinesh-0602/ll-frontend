@@ -1,6 +1,8 @@
 // Analytics utility for tracking user interactions
 // Supports Google Analytics 4 (GA4) and custom analytics
 
+import { API_URL } from '../config';
+
 class Analytics {
   constructor() {
     this.isEnabled = false;
@@ -233,7 +235,7 @@ class Analytics {
   // Send analytics to backend (optional)
   async sendToBackend(event) {
     try {
-      await fetch('http://localhost:8000/api/analytics', {
+      await fetch(`${process.env.REACT_APP_API_URL || 'http://localhost:8000'}/api/analytics`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

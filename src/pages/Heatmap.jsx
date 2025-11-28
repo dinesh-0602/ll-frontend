@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { HeatmapSkeleton } from '../components/Skeleton';
 import analytics from '../utils/analytics';
+import { API_ENDPOINTS } from '../config';
 import './Heatmap.css'; // Import custom styles
 
 export default function Heatmap() {
@@ -28,7 +29,7 @@ export default function Heatmap() {
         <div className="iframe-wrapper">
           {iframeLoading && <HeatmapSkeleton />}
           <iframe
-            src="http://localhost:8000/heatmap"
+            src={API_ENDPOINTS.heatmap}
             title="Heatmap"
             width="100%"
             height="100%"

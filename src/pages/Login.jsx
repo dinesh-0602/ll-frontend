@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useToast } from '../components/Toast';
 import { handleApiError } from '../utils/errorHandler';
+import { API_ENDPOINTS } from '../config';
 import './Login.css';
 
 function AuthForm() {
@@ -40,7 +41,7 @@ function AuthForm() {
     // Registration: check if user exists
     if (!isLogin) {
       try {
-        const checkResponse = await fetch(`http://localhost:8000/check-user?username=${encodeURIComponent(trimmedUsername)}`);
+        const checkResponse = await fetch(`${API_ENDPOINTS.checkUser}?username=${encodeURIComponent(trimmedUsername)}`);
         const checkData = await checkResponse.json();
         console.log('Registration check:', checkData);
         if (checkData.exists) {
@@ -59,7 +60,7 @@ function AuthForm() {
     // Login: check if user exists before attempting login
     if (isLogin) {
       try {
-        const checkResponse = await fetch(`http://localhost:8000/check-user?username=${encodeURIComponent(trimmedUsername)}`);
+        const checkResponse = await fetch(`${API_ENDPOINTS.checkUser}?username=${encodeURIComponent(trimmedUsername)}`);
         const checkData = await checkResponse.json();
         console.log('Login check:', checkData);
         
@@ -71,9 +72,9 @@ function AuthForm() {
       }
     }
 
-    const endpoint = isLogin ? 'login' : 'register';
+    const endpoint = isLogin ? API_ENDPOINTS.login : API_ENDPOINTS.register;
     try {
-      const response = await fetch(`http://localhost:8000/${endpoint}`, {
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: trimmedUsername, password }),

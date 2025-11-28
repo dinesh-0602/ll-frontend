@@ -5,6 +5,7 @@ import { useToast } from '../components/Toast';
 import { handleApiError, validateFile } from '../utils/errorHandler';
 import { VideoSkeleton } from '../components/Skeleton';
 import analytics from '../utils/analytics';
+import { API_ENDPOINTS } from '../config';
 import './Upload.css';
 
 export default function Upload() {
@@ -41,7 +42,7 @@ export default function Upload() {
       setStatus("Uploading and processing video...");
       setUploadProgress(0);
 
-      const response = await axios.post("http://localhost:8000/upload", formData, {
+      const response = await axios.post(API_ENDPOINTS.upload, formData, {
         onUploadProgress: (progressEvent) => {
           const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
           setUploadProgress(percentCompleted);

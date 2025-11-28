@@ -5,6 +5,7 @@ import { handleApiError } from '../utils/errorHandler';
 import { VideoSkeleton } from '../components/Skeleton';
 import { useKeyboardShortcuts } from '../hooks/useKeyboardShortcuts';
 import analytics from '../utils/analytics';
+import { API_ENDPOINTS } from '../config';
 import './Realtime.css';
 
 export default function Realtime() {
@@ -22,7 +23,7 @@ export default function Realtime() {
       setLoading(true);
       setIsError(false);
       setStatus("Starting camera...");
-      await axios.get("http://localhost:8000/start-camera");
+      await axios.get(API_ENDPOINTS.startCamera);
       setRunning(true);
       setStartTime(Date.now());
       setDetectionCount(0);
@@ -47,7 +48,7 @@ export default function Realtime() {
       setLoading(true);
       setIsError(false);
       setStatus("Stopping camera...");
-      await axios.get("http://localhost:8000/stop-camera");
+      await axios.get(API_ENDPOINTS.stopCamera);
       setRunning(false);
       setStatus("Camera stopped");
       toast.success('Camera stopped successfully!');
@@ -153,7 +154,7 @@ export default function Realtime() {
           <div className="video-wrapper">
             {imageLoading && <VideoSkeleton />}
             <img
-              src="http://localhost:8000/realtime-feed"
+              src={API_ENDPOINTS.realtimeFeed}
               alt="Live Camera Feed"
               className="live-feed"
               onLoad={() => setImageLoading(false)}
